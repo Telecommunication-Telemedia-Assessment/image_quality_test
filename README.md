@@ -1,5 +1,10 @@
-# image_quality_test
+# Image Quality Test for higher resolutions
 
-repo of results from image quality test
+This repo contains the code to reproduce the images used for the lab and online test for image quality.
+The overall idea is to evaluate H.265 for image compression.
 
-all images resulted from the git@avt10.rz.tu-ilmenau.de:avt-incubator/one_frame_vmaf_perception_differences.git code and experiment.
+## Structure
+
+* images: source images and sampling procedure
+* test_1: analysis of the lab test
+* test_2: analysis of the online/crowd test
