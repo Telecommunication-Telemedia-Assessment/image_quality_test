@@ -1,0 +1,1 @@
+to get the used patches for the test use `./split.py` with the pngs as input from test1
