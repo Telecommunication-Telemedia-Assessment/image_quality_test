@@ -1,5 +1,5 @@
 diff --git a/source/apps/vca/vca.cpp b/source/apps/vca/vca.cpp
-index fe2fcae..a6c9a71 100644
+index fe2fcae..d799e3d 100644
 --- a/source/apps/vca/vca.cpp
 +++ b/source/apps/vca/vca.cpp
 @@ -111,6 +111,7 @@ struct CLIOptions
@@ -39,7 +39,7 @@ index fe2fcae..a6c9a71 100644
      file << result.result.poc << ", " << result.result.averageEnergy << ", " << result.result.sad
           << ", " << result.result.epsilon << ", " << result.result.averageBrightness;
 +    */
-+    std::cout << "{\"video\": \"" << videofilename <<  "\", POC\": " << result.result.poc << ", \"E\":" << result.result.averageEnergy << ", \"SAD\":" << result.result.sad
++    std::cout << "{\"video\": \"" << videofilename <<  "\", \"POC\": " << result.result.poc << ", \"E\":" << result.result.averageEnergy << ", \"SAD\":" << result.result.sad
 +         << ", \"epsilon\":" << result.result.epsilon << ", \"averageBrightness\":" << result.result.averageBrightness << "}" << std::endl;
 +    /*
      if (enableChroma)

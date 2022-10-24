@@ -7,8 +7,13 @@ import sys
 
 
 lines = []
+errors = 0
 for l in sys.stdin:
-    lines.append(json.dumps(json.loads(l)))
+    try:
+        lines.append(json.dumps(json.loads(l)))
+    except:
+#        print("error line", l)
+        errors += 1
 
 print("[")
 
@@ -17,3 +22,5 @@ for l in lines[0:-1]:
 
 print(lines[-1])
 print("]")
+
+print(errors)
