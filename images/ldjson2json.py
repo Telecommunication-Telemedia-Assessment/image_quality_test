@@ -23,4 +23,4 @@ for l in lines[0:-1]:
 print(lines[-1])
 print("]")
 
-print(errors)
+#print(errors)
