@@ -26,3 +26,5 @@ cat vmaf_cmds.list | xargs -P10
 ```
 
 finally the `./select_representations.py` script selects based on vmaf the used images for the test.
+
+To calculate SI and VCA you need the corresponding tools locally installed.
