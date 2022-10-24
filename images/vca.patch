@@ -1,0 +1,83 @@
+diff --git a/source/apps/vca/vca.cpp b/source/apps/vca/vca.cpp
+index fe2fcae..a6c9a71 100644
+--- a/source/apps/vca/vca.cpp
++++ b/source/apps/vca/vca.cpp
+@@ -111,6 +111,7 @@ struct CLIOptions
+     unsigned skipFrames{};
+     unsigned framesToBeAnalyzed{};
+     std::string complexityCSVFilename;
++    std::string videofilename;
+     std::string shotCSVFilename;
+     std::string yuviewStatsFilename;
+ 
+@@ -242,6 +243,8 @@ std::optional<CLIOptions> parseCLIOptions(int argc, char **argv)
+                 options.shotCSVFilename = optarg;
+             else if (name == "yuview-stats")
+                 options.yuviewStatsFilename = optarg;
++            else if (name == "videofilename")
++                options.videofilename = optarg;
+             else if (name == "max-epsthresh")
+                 options.shotDetectParam.maxEpsilonThresh = std::stod(optarg);
+             else if (name == "min-epsthresh")
+@@ -258,7 +261,7 @@ std::optional<CLIOptions> parseCLIOptions(int argc, char **argv)
+     if (options.inputFilename.size() >= 4
+         && options.inputFilename.substr(options.inputFilename.size() - 4) == ".y4m")
+         options.openAsY4m = true;
+-
++    std::cout << "video filename: " << options.videofilename << std::endl;
+     return options;
+ }
+ 
+@@ -331,15 +334,21 @@ void logResult(const Result &result, const vca_frame *frame, const unsigned resu
+                 + std::to_string(result.result.sad));
+ }
+ 
+-void writeComplexityStatsToFile(const Result &result, std::ofstream &file, bool enableChroma)
++void writeComplexityStatsToFile(const Result &result, std::ofstream &file, bool enableChroma, auto videofilename)
+ {
++    /*
+     file << result.result.poc << ", " << result.result.averageEnergy << ", " << result.result.sad
+          << ", " << result.result.epsilon << ", " << result.result.averageBrightness;
++    */
++    std::cout << "{\"video\": \"" << videofilename <<  "\", POC\": " << result.result.poc << ", \"E\":" << result.result.averageEnergy << ", \"SAD\":" << result.result.sad
++         << ", \"epsilon\":" << result.result.epsilon << ", \"averageBrightness\":" << result.result.averageBrightness << "}" << std::endl;
++    /*
+     if (enableChroma)
+         file << ", " << result.result.averageU << ", " << result.result.energyU << ", "
+              << result.result.averageV << ", " << result.result.energyV << "\n";
+     else
+         file << "\n";
++    */
+ }
+ 
+ void writeShotDetectionResultsToFile(const std::vector<vca_frame_results> &shotDetectFrames,
+@@ -598,7 +607,7 @@ int main(int argc, char **argv)
+             if (yuviewStatsFile)
+                 yuviewStatsFile->write(result.result, options.vcaParam.blockSize);
+             if (complexityFile.is_open())
+-                writeComplexityStatsToFile(result, complexityFile, options.vcaParam.enableChroma);
++                writeComplexityStatsToFile(result, complexityFile, options.vcaParam.enableChroma, options.videofilename);
+             if (!options.shotCSVFilename.empty())
+                 shotDetectFrames.push_back(result.result);
+ 
+@@ -627,7 +636,7 @@ int main(int argc, char **argv)
+         if (yuviewStatsFile)
+             yuviewStatsFile->write(result.result, options.vcaParam.blockSize);
+         if (complexityFile.is_open())
+-            writeComplexityStatsToFile(result, complexityFile, options.vcaParam.enableChroma);
++            writeComplexityStatsToFile(result, complexityFile, options.vcaParam.enableChroma, options.videofilename);
+         if (!options.shotCSVFilename.empty())
+             shotDetectFrames.push_back(result.result);
+ 
+diff --git a/source/apps/vca/vcacli.h b/source/apps/vca/vcacli.h
+index 15d1cd8..a5faa07 100644
+--- a/source/apps/vca/vcacli.h
++++ b/source/apps/vca/vcacli.h
+@@ -37,6 +37,7 @@ static const struct option long_options[] = {{"help", no_argument, NULL, 'h'},
+                                              {"skip", required_argument, NULL, 0},
+                                              {"frames", required_argument, NULL, 'f'},
+                                              {"complexity-csv", required_argument, NULL, 0},
++                                             {"videofilename", required_argument, NULL, 0},
+                                              {"shot-csv", required_argument, NULL, 0},
+                                              {"yuview-stats", required_argument, NULL, 0},
+                                              {"max-epsthresh", required_argument, NULL, 0},

@@ -28,4 +28,5 @@ cat vmaf_cmds.list | xargs -P10
 finally the `./select_representations.py` script selects based on vmaf the used images for the test.
 
 To calculate SI and VCA you need the corresponding tools locally installed.
-For VCA you need to add a specific output of json to the tool.
+
+Clone VCA via `git clone git@github.com:cd-athena/VCA.git` and apply the provided git patch, see `vca.patch`, which activates some hacked changes for ldjson output.
