@@ -16,11 +16,11 @@ If you use this software in your research, please include a link to the reposito
 
 ```
 
-@inproceedings{goeringrao2023crowd,
+@article{goeringrao2023crowd,
   title={Quality Assessment of Higher Resolution Images and Videos with Remote Testing},
-  author={Steve G\"oring and {Rakesh Rao Ramachandra} Rao and Alexander Raake},
-  year={2023},
-  note={to be published},
+  author={Steve G\"oring and Rakesh {Rao Ramachandra Rao} and Alexander Raake},
+  journal={Quality and User Experience (QUEX)},
+  year={2022}
 }
 ```
 
