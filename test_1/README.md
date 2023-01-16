@@ -1,7 +1,7 @@
 # image quality test analysis and results
 
 ## general
-all images were created based on repo `one_frame_vmaf_perception_differences`
+all images were created based on the scripts provided in `/images`.
 
 for the test only a random selected subset was used:
 
