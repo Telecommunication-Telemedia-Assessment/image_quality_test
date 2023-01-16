@@ -20,7 +20,7 @@ cat encode_commands.list | xargs -P10
 
 after this you can extract the filesizes with `./get_filesize.sh`
 and calculate objective metrics with `./create_commands_vmaf.py`,
-this script will create a list `vmaf_cmds.list` that can be run similar to encode_commands.list via
+this script will create a list `vmaf_cmds.list` that can be run similar to `encode_commands.list` via
 ```
 cat vmaf_cmds.list | xargs -P10
 ```
