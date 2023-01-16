@@ -20,7 +20,7 @@ If you use this software in your research, please include a link to the reposito
   title={Quality Assessment of Higher Resolution Images and Videos with Remote Testing},
   author={Steve G\"oring and Rakesh {Rao Ramachandra Rao} and Alexander Raake},
   journal={Quality and User Experience (QUEX)},
-  year={2022}
+  year={2023}
 }
 ```
 
