@@ -1,7 +1,7 @@
 # Image quality test for higher resolutions
 
 This repo contains the code to reproduce the images used for the lab and online test for image quality.
-The overall idea is to evaluate H.265 for image compression.
+The overall idea is to evaluate H.265 for image compression and compare the lab and online test results (for more details see the reference listed in the Acknowledgments section).
 
 ## Structure
 
