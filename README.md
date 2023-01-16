@@ -16,7 +16,7 @@ If you use this software in your research, please include a link to the reposito
 
 ```
 
-@inproceedings{goering2023crowd,
+@inproceedings{goeringrao2023crowd,
   title={Quality Assessment of Higher Resolution Images and Videos with Remote Testing},
   author={Steve G\"oring and {Rakesh Rao Ramachandra} Rao and Alexander Raake},
   year={2023},
