@@ -14,8 +14,7 @@ The overall idea is to evaluate H.265 for image compression and compare the lab 
 ## Acknowledgments
 If you use this software in your research, please include a link to the repository and reference the following paper.
 
-```
-
+```bibtex
 @article{goeringrao2023crowd,
   title={Quality Assessment of Higher Resolution Images and Videos with Remote Testing},
   author={Steve G\"oring and Rakesh {Rao Ramachandra Rao} and Alexander Raake},
