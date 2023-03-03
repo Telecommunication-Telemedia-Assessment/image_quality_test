@@ -9,6 +9,9 @@ The overall idea is to evaluate H.265 for image compression and compare the lab 
 * test_1: analysis of the lab test
 * test_2: analysis of the online/crowd test
 
+## Requirements
+To run the evaluation scripts you need python3 with:
+  * jupyter, pandas, seaborn, numpy, scipy and scikit-learn
 
 
 ## Acknowledgments
