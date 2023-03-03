@@ -6,6 +6,7 @@ The overall idea is to evaluate H.265 for image compression and compare the lab 
 ## Structure
 
 * images: source images and sampling procedure
+* pre_analysis: pre analysis of the images, including some image quality models
 * test_1: analysis of the lab test
 * test_2: analysis of the online/crowd test
 
